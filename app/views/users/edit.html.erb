@@ -1,0 +1,25 @@
+<% if @user.errors %>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      <% end %>
+
+
+<h2>User info</h2>
+<div class="container">
+<%= form_for(@user, url: user_path(current_user.id)) do |f| %>
+ <div>Name</div>
+    <%= f.text_field :name %>
+<div for="user_image">Image</div>
+  <%= f.attachment_field :profile_image %>
+    <div>introduction</div>
+      <%= f.text_area :introduction %>
+<div><input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User"></div>
+
+
+
+<% end %>
+
+
